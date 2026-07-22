@@ -1,15 +1,12 @@
 import ComponentPreview from "@/components/preview/ComponentPreview";
 import { getComponentSource } from "@/lib/getComponentSource";
-import Variant1 from "@/components/library/sections/gallery/Variant1";
-import Variant2 from "@/components/library/sections/gallery/Variant2";
-import Variant3 from "@/components/library/sections/gallery/Variant3";
 
 export const metadata = { title: "Gallery Sections — UI Library" };
 
 const variants = [
-  { title: "Simple Grid", file: "sections/gallery/Variant1.jsx", Component: Variant1 },
-  { title: "Editorial Mosaic", file: "sections/gallery/Variant2.jsx", Component: Variant2 },
-  { title: "Dark Hover Reveal", file: "sections/gallery/Variant3.jsx", Component: Variant3 },
+  { title: "Simple Grid", file: "sections/gallery/Variant1.jsx" },
+  { title: "Editorial Mosaic", file: "sections/gallery/Variant2.jsx" },
+  { title: "Dark Hover Reveal", file: "sections/gallery/Variant3.jsx" },
 ];
 
 export default function GalleryPage() {
@@ -20,10 +17,15 @@ export default function GalleryPage() {
         <p className="mt-1 text-sm text-neutral-400">Image grids and showcases.</p>
       </div>
       <div className="space-y-10">
-        {variants.map((v) => (
-          <ComponentPreview key={v.file} title={v.title} code={getComponentSource(v.file)}>
-            <v.Component />
-          </ComponentPreview>
+        {variants.map((v, i) => (
+          <ComponentPreview
+            key={v.file}
+            title={v.title}
+            code={getComponentSource(v.file)}
+            category="sections"
+            type="gallery"
+            variant={i + 1}
+          />
         ))}
       </div>
     </div>

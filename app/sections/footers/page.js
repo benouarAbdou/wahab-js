@@ -1,15 +1,12 @@
 import ComponentPreview from "@/components/preview/ComponentPreview";
 import { getComponentSource } from "@/lib/getComponentSource";
-import Variant1 from "@/components/library/sections/footers/Variant1";
-import Variant2 from "@/components/library/sections/footers/Variant2";
-import Variant3 from "@/components/library/sections/footers/Variant3";
 
 export const metadata = { title: "Footer Sections — UI Library" };
 
 const variants = [
-  { title: "Multi-Column Footer", file: "sections/footers/Variant1.jsx", Component: Variant1 },
-  { title: "Minimal Editorial Footer", file: "sections/footers/Variant2.jsx", Component: Variant2 },
-  { title: "Dark CTA Footer", file: "sections/footers/Variant3.jsx", Component: Variant3 },
+  { title: "Multi-Column Footer", file: "sections/footers/Variant1.jsx" },
+  { title: "Minimal Editorial Footer", file: "sections/footers/Variant2.jsx" },
+  { title: "Dark CTA Footer", file: "sections/footers/Variant3.jsx" },
 ];
 
 export default function FootersPage() {
@@ -20,10 +17,15 @@ export default function FootersPage() {
         <p className="mt-1 text-sm text-neutral-400">Site-wide footer layouts with links and legal.</p>
       </div>
       <div className="space-y-10">
-        {variants.map((v) => (
-          <ComponentPreview key={v.file} title={v.title} code={getComponentSource(v.file)}>
-            <v.Component />
-          </ComponentPreview>
+        {variants.map((v, i) => (
+          <ComponentPreview
+            key={v.file}
+            title={v.title}
+            code={getComponentSource(v.file)}
+            category="sections"
+            type="footers"
+            variant={i + 1}
+          />
         ))}
       </div>
     </div>

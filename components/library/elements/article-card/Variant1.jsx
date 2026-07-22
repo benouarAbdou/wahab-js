@@ -13,7 +13,7 @@ export default function Variant1() {
           Lessons learned rolling out a shared component library company-wide.
         </p>
         <div className="mt-4 flex items-center gap-2 text-xs text-slate-500">
-          <div className="h-6 w-6 rounded-full bg-slate-800" />
+          <div className="h-6 w-6 shrink-0 rounded-full bg-slate-800" />
           <span>Amara Okafor &middot; Jun 12</span>
         </div>
       </div>

@@ -18,7 +18,7 @@ export default function TopNav() {
       <div className="mx-auto flex h-14 max-w-7xl items-center justify-between px-4 sm:px-6">
         <Link href="/" className="flex items-center gap-2 text-sm font-medium text-white">
           <Layers className="h-4 w-4" />
-          <span>UI Library</span>
+          <span>wahab js</span>
         </Link>
 
         <nav className="hidden md:flex items-center gap-6 text-sm">

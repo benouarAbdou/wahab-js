@@ -43,7 +43,7 @@ export default function Variant1() {
                 &ldquo;{q.text}&rdquo;
               </p>
               <div className="mt-5 flex items-center gap-3">
-                <div className={`flex h-9 w-9 items-center justify-center rounded-full text-xs font-semibold ${q.tone}`}>
+                <div className={`flex h-9 w-9 shrink-0 items-center justify-center rounded-full text-xs font-semibold ${q.tone}`}>
                   {q.initials}
                 </div>
                 <div>

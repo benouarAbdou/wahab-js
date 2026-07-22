@@ -1,15 +1,12 @@
 import ComponentPreview from "@/components/preview/ComponentPreview";
 import { getComponentSource } from "@/lib/getComponentSource";
-import Variant1 from "@/components/library/sections/hero/Variant1";
-import Variant2 from "@/components/library/sections/hero/Variant2";
-import Variant3 from "@/components/library/sections/hero/Variant3";
 
 export const metadata = { title: "Hero Sections — UI Library" };
 
 const variants = [
-  { title: "Gradient SaaS Hero", file: "sections/hero/Variant1.jsx", Component: Variant1 },
-  { title: "Minimal Editorial Hero", file: "sections/hero/Variant2.jsx", Component: Variant2 },
-  { title: "Dark Glow Hero", file: "sections/hero/Variant3.jsx", Component: Variant3 },
+  { title: "Gradient SaaS Hero", file: "sections/hero/Variant1.jsx" },
+  { title: "Minimal Editorial Hero", file: "sections/hero/Variant2.jsx" },
+  { title: "Dark Glow Hero", file: "sections/hero/Variant3.jsx" },
 ];
 
 export default function HeroPage() {
@@ -22,10 +19,15 @@ export default function HeroPage() {
         </p>
       </div>
       <div className="space-y-10">
-        {variants.map((v) => (
-          <ComponentPreview key={v.file} title={v.title} code={getComponentSource(v.file)}>
-            <v.Component />
-          </ComponentPreview>
+        {variants.map((v, i) => (
+          <ComponentPreview
+            key={v.file}
+            title={v.title}
+            code={getComponentSource(v.file)}
+            category="sections"
+            type="hero"
+            variant={i + 1}
+          />
         ))}
       </div>
     </div>

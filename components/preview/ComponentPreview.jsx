@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Check, Copy, Monitor, Tablet, Smartphone } from "lucide-react";
 import CodeBlock from "./CodeBlock";
 import { cn } from "@/lib/cn";
@@ -15,12 +15,33 @@ export default function ComponentPreview({
   title,
   description,
   code,
+  category,
+  type,
+  variant,
   center = false,
-  children,
 }) {
   const [tab, setTab] = useState("preview");
   const [viewport, setViewport] = useState("desktop");
   const [copied, setCopied] = useState(false);
+  const [height, setHeight] = useState(280);
+  const [loaded, setLoaded] = useState(false);
+  const iframeRef = useRef(null);
+
+  const previewUrl = `/preview/${category}/${type}/${variant}${center ? "?center=1" : ""}`;
+
+  useEffect(() => {
+    function handleMessage(event) {
+      if (
+        event.data?.type === "preview-resize" &&
+        event.source === iframeRef.current?.contentWindow
+      ) {
+        setHeight(Math.max(80, event.data.height));
+        setLoaded(true);
+      }
+    }
+    window.addEventListener("message", handleMessage);
+    return () => window.removeEventListener("message", handleMessage);
+  }, []);
 
   function handleCopy() {
     navigator.clipboard.writeText(code);
@@ -95,20 +116,25 @@ export default function ComponentPreview({
         >
           <div
             className={cn(
-              "mx-auto transition-all duration-300",
+              "mx-auto transition-[width] duration-300",
               viewport !== "desktop" &&
                 "overflow-hidden rounded-md border border-neutral-800 shadow-2xl"
             )}
             style={{ width: VIEWPORTS[viewport].width, maxWidth: "100%" }}
           >
-            <div
-              className={cn(
-                "overflow-auto",
-                center && "flex items-center justify-center p-6"
-              )}
-            >
-              {children}
-            </div>
+            <iframe
+              ref={iframeRef}
+              src={previewUrl}
+              title={title}
+              style={{
+                width: "100%",
+                height,
+                border: 0,
+                display: "block",
+                opacity: loaded ? 1 : 0,
+                transition: "opacity 0.2s ease-out, height 0.2s ease-out",
+              }}
+            />
           </div>
         </div>
       ) : (

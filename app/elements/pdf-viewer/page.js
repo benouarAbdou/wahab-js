@@ -1,17 +1,12 @@
 import ComponentPreview from "@/components/preview/ComponentPreview";
 import { getComponentSource } from "@/lib/getComponentSource";
-import {
-  PdfViewerVariant1,
-  PdfViewerVariant2,
-  PdfViewerVariant3,
-} from "@/components/preview/PdfViewerLoaders";
 
 export const metadata = { title: "PDF Viewer — UI Library" };
 
 const variants = [
-  { title: "Minimal Toolbar Viewer", file: "elements/pdf-viewer/Variant1.jsx", Component: PdfViewerVariant1 },
-  { title: "Thumbnail Sidebar Viewer", file: "elements/pdf-viewer/Variant2.jsx", Component: PdfViewerVariant2 },
-  { title: "Continuous Scroll Viewer", file: "elements/pdf-viewer/Variant3.jsx", Component: PdfViewerVariant3 },
+  { title: "Minimal Toolbar Viewer", file: "elements/pdf-viewer/Variant1.jsx" },
+  { title: "Thumbnail Sidebar Viewer", file: "elements/pdf-viewer/Variant2.jsx" },
+  { title: "Continuous Scroll Viewer", file: "elements/pdf-viewer/Variant3.jsx" },
 ];
 
 export default function PdfViewerPage() {
@@ -26,10 +21,16 @@ export default function PdfViewerPage() {
         </p>
       </div>
       <div className="space-y-10">
-        {variants.map((v) => (
-          <ComponentPreview key={v.file} title={v.title} code={getComponentSource(v.file)} center>
-            <v.Component />
-          </ComponentPreview>
+        {variants.map((v, i) => (
+          <ComponentPreview
+            key={v.file}
+            title={v.title}
+            code={getComponentSource(v.file)}
+            category="elements"
+            type="pdf-viewer"
+            variant={i + 1}
+            center
+          />
         ))}
       </div>
     </div>

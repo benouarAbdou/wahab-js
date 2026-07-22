@@ -13,7 +13,7 @@ export default function Variant3() {
             <div key={t.name} className="rounded-xl border border-neutral-800 bg-neutral-900/60 p-6">
               <p className="text-sm leading-relaxed text-neutral-300">&ldquo;{t.text}&rdquo;</p>
               <div className="mt-5 flex items-center gap-3">
-                <div className={`h-9 w-9 rounded-full bg-gradient-to-br ${t.tone}`} />
+                <div className={`h-9 w-9 shrink-0 rounded-full bg-gradient-to-br ${t.tone}`} />
                 <div>
                   <p className="text-sm font-medium text-white">{t.name}</p>
                   <p className="text-xs text-neutral-500">{t.role}</p>

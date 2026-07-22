@@ -9,7 +9,7 @@ export default function Variant2() {
           about the outcome.
         </p>
         <div className="mt-8 flex items-center justify-center gap-3">
-          <div className="h-10 w-10 rounded-full bg-neutral-300" />
+          <div className="h-10 w-10 shrink-0 rounded-full bg-neutral-300" />
           <div className="text-left">
             <p className="text-sm font-medium text-neutral-900">Elena Marsh</p>
             <p className="text-xs text-neutral-500">Editor-in-Chief, Fieldnotes</p>

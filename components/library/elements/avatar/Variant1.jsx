@@ -11,17 +11,17 @@ export default function Variant1() {
         {users.map((u) => (
           <div
             key={u.initials}
-            className={`flex h-10 w-10 items-center justify-center rounded-full border-2 border-white text-xs font-semibold text-white ${u.tone}`}
+            className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-full border-2 border-white text-xs font-semibold text-white ${u.tone}`}
           >
             {u.initials}
           </div>
         ))}
-        <div className="flex h-10 w-10 items-center justify-center rounded-full border-2 border-white bg-slate-200 text-xs font-semibold text-slate-600">
+        <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border-2 border-white bg-slate-200 text-xs font-semibold text-slate-600">
           +5
         </div>
       </div>
       <div className="flex items-center gap-3">
-        <div className="relative h-12 w-12">
+        <div className="relative h-12 w-12 shrink-0">
           <div className="flex h-full w-full items-center justify-center rounded-full bg-slate-800 text-sm font-semibold text-white">
             JD
           </div>

@@ -1,6 +1,5 @@
 import { Geist, Geist_Mono } from "next/font/google";
-import TopNav from "@/components/site/TopNav";
-import SiteFooter from "@/components/site/SiteFooter";
+import ChromeGate from "@/components/site/ChromeGate";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -14,7 +13,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata = {
-  title: "UI Library — Sections & Elements",
+  title: "wahab js — Sections & Elements",
   description:
     "A library of React + Tailwind sections and elements, with live previews and copyable source.",
 };
@@ -25,10 +24,11 @@ export default function RootLayout({ children }) {
       lang="en"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased dark`}
     >
-      <body className="min-h-full flex flex-col bg-black text-white">
-        <TopNav />
-        <main className="flex-1">{children}</main>
-        <SiteFooter />
+      <body
+        className="min-h-full flex flex-col bg-black text-white"
+        suppressHydrationWarning
+      >
+        <ChromeGate>{children}</ChromeGate>
       </body>
     </html>
   );

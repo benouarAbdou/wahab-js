@@ -17,8 +17,8 @@ export default function Variant3() {
         const Icon = icons[s.status];
         return (
           <div key={s.label} className="flex gap-3">
-            <div className="flex flex-col items-center">
-              <Icon className={`h-4 w-4 ${colors[s.status]} ${s.status === "active" ? "animate-spin" : ""}`} />
+            <div className="flex shrink-0 flex-col items-center">
+              <Icon className={`h-4 w-4 shrink-0 ${colors[s.status]} ${s.status === "active" ? "animate-spin" : ""}`} />
               {i < steps.length - 1 && <div className="my-1 w-px flex-1 bg-neutral-800" />}
             </div>
             <p className={`pb-5 text-sm ${s.status === "pending" ? "text-neutral-600" : "text-neutral-200"}`}>
