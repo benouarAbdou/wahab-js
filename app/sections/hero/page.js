@@ -4,12 +4,31 @@ import { getComponentSource } from "@/lib/getComponentSource";
 export const metadata = { title: "Hero Sections — UI Library" };
 
 const variants = [
-  { title: "Gradient SaaS Hero", file: "sections/hero/Variant1.jsx" },
-  { title: "Minimal Editorial Hero", file: "sections/hero/Variant2.jsx" },
-  { title: "Dark Glow Hero", file: "sections/hero/Variant3.jsx" },
-  { title: "Agency Noise Hero", file: "sections/hero/Variant4.jsx" },
-  { title: "Editorial House Hero", file: "sections/hero/Variant5.jsx" },
-  { title: "Brutalist Terminal Hero", file: "sections/hero/Variant6.jsx" },
+  {
+    title: "Minimal Editorial Hero",
+    file: "sections/hero/Variant2.jsx",
+    prompt: "sections/hero/Variant2.design.md",
+  },
+  {
+    title: "Dark Glow Hero",
+    file: "sections/hero/Variant3.jsx",
+    prompt: "sections/hero/Variant3.design.md",
+  },
+  {
+    title: "Playful EdTech Hero",
+    file: "sections/hero/Variant4.jsx",
+    prompt: "sections/hero/Variant4.design.md",
+  },
+  {
+    title: "Fanned Game Cards Hero",
+    file: "sections/hero/Variant6.jsx",
+    prompt: "sections/hero/Variant6.design.md",
+  },
+  {
+    title: "Bold Studio Hero",
+    file: "sections/hero/Variant7.jsx",
+    prompt: "sections/hero/Variant7.design.md",
+  },
 ];
 
 export default function HeroPage() {
@@ -27,6 +46,7 @@ export default function HeroPage() {
             key={v.file}
             title={v.title}
             code={getComponentSource(v.file)}
+            prompt={getComponentSource(v.prompt)}
             category="sections"
             type="hero"
             variant={i + 1}

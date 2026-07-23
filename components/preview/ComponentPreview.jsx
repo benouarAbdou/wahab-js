@@ -15,6 +15,7 @@ export default function ComponentPreview({
   title,
   description,
   code,
+  prompt,
   category,
   type,
   variant,
@@ -44,7 +45,7 @@ export default function ComponentPreview({
   }, []);
 
   function handleCopy() {
-    navigator.clipboard.writeText(code);
+    navigator.clipboard.writeText(tab === "prompt" ? prompt : code);
     setCopied(true);
     setTimeout(() => setCopied(false), 1500);
   }
@@ -101,6 +102,18 @@ export default function ComponentPreview({
             >
               Code
             </button>
+            {prompt && (
+              <button
+                type="button"
+                onClick={() => setTab("prompt")}
+                className={cn(
+                  "rounded px-2.5 py-1 text-neutral-500 transition-colors hover:text-white",
+                  tab === "prompt" && "bg-neutral-800 text-white"
+                )}
+              >
+                Prompt
+              </button>
+            )}
           </div>
         </div>
       </div>
@@ -147,7 +160,11 @@ export default function ComponentPreview({
             {copied ? <Check className="h-3 w-3" /> : <Copy className="h-3 w-3" />}
             {copied ? "Copied" : "Copy"}
           </button>
-          <CodeBlock code={code} />
+          {tab === "prompt" ? (
+            <CodeBlock code={prompt} language="markdown" />
+          ) : (
+            <CodeBlock code={code} language="jsx" />
+          )}
         </div>
       )}
     </div>
