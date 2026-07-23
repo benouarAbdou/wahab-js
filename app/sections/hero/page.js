@@ -7,6 +7,9 @@ const variants = [
   { title: "Gradient SaaS Hero", file: "sections/hero/Variant1.jsx" },
   { title: "Minimal Editorial Hero", file: "sections/hero/Variant2.jsx" },
   { title: "Dark Glow Hero", file: "sections/hero/Variant3.jsx" },
+  { title: "Agency Noise Hero", file: "sections/hero/Variant4.jsx" },
+  { title: "Editorial House Hero", file: "sections/hero/Variant5.jsx" },
+  { title: "Brutalist Terminal Hero", file: "sections/hero/Variant6.jsx" },
 ];
 
 export default function HeroPage() {

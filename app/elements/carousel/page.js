@@ -7,6 +7,8 @@ const variants = [
   { title: "Image Carousel", file: "elements/carousel/Variant1.jsx" },
   { title: "Editorial Quote Carousel", file: "elements/carousel/Variant2.jsx" },
   { title: "Dark Product Carousel", file: "elements/carousel/Variant3.jsx" },
+  { title: "Paginated Card Carousel", file: "elements/carousel/Variant4.jsx" },
+  { title: "Dark Paginated Card Carousel", file: "elements/carousel/Variant5.jsx" },
 ];
 
 export default function CarouselPage() {
